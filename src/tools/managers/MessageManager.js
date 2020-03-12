@@ -25,9 +25,8 @@ export class MessageManager {
      */
     create(form) {
 
-        let message = new Message(null, this.auth.extractStorage().username, form.content);
+        let message = new Message(null, this.auth.extractStorage().username, form);
         this.request.preparedRequest(this.url, "create");
-
         this.request.sendRequest(JSON.stringify(message));
     }
 
@@ -36,6 +35,8 @@ export class MessageManager {
      */
     read() {
 
+        console.log("entrée sur read");
+        
         this.request.preparedRequest(this.url, "read");
         return this.request.sendRequest(null).then(function(response){
 

@@ -41,7 +41,6 @@ export class AuthentificationManager {
      */
     addStorage() {
 
-        console.log(this.getAuth())
         sessionStorage.setItem("session" , JSON.stringify(this.getAuth()));
     }
 
@@ -51,6 +50,23 @@ export class AuthentificationManager {
     extractStorage() {
 
         return JSON.parse(sessionStorage.getItem("session"));
+    }
+
+    /**
+     * indique si l'utilisateur est connecté
+     * renvoie false par defaut : non connecté
+     * true si une session existe dans le storage
+     */
+    logState() {
+
+        let output = false;
+
+        if (JSON.parse(sessionStorage.getItem("session")) != undefined) {
+
+            output = true;
+        }
+
+        return output;
     }
 
 

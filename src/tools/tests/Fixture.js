@@ -43,7 +43,7 @@ export class Fixture {
 
     dataAuth = {
 
-        "username": "Stephan",
+        "username": "Mickael",
         "token": "abcdef132456789"
     }
 
